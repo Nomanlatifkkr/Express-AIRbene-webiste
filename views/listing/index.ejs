@@ -1,0 +1,32 @@
+<% layout('tamp/bolierplate.ejs') -%> 
+
+<head>
+  <title>All listing</title>
+</head>
+<body>
+  <br><br>
+    <h1> All listings</h1>
+    <br><br>
+    <form action="/listing/new" method="GET">
+        <!-- <button>Create New </button> -->
+    </form>
+    <div class="row row-cols-lg-5 row-cols-md-4  row-cols-sm-3 row-cols-xs-1  row-cols-xxxs-1">
+    <% for (const list of listdata) { %>
+    <div class="card"  style="width: 20rem; height: auto;">
+        <img class="image" src="<%= list.image.url %>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%=list.title.substring(0, 35) %></h5>
+          <p class="card-text"><%=  list.description.substring(0, 90)%></p>
+          <% if (list.price) { %>
+            <p class="card-text"><%= list.price.toLocaleString('en-PK', { style: 'currency', currency: 'PKR' }); %></p>
+          <% } else { %>
+            <p class="card-text">Price unavailable</p>
+          <% } %>
+          
+          <a id="btn" href="/listing/<%= list._id %>" class="btn btn-primary">Go See more</a>
+        </div>
+      </div>
+      <%  } %>
+    </div>
+    
+</body>

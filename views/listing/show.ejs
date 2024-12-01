@@ -1,0 +1,90 @@
+<% layout('tamp/bolierplate.ejs') -%> 
+ <link rel="stylesheet" href="/css/style.css">
+ <link rel="stylesheet" href="../css/rating.css">
+
+
+<body>
+    
+    <div class="showcontainer">
+      <h1><%= data.title %></h1>
+      <img class="showimage" src="<%= data.image.url %>" alt="<%= data.image.filename %>">
+      <% if (data.price) { %>
+          <li><%= data.price.toLocaleString('en-PK', { style: 'currency', currency: 'PKR' }); %></li>
+        <% } else { %>
+          <li>Price unavailable</li>
+        <% } %>
+      <li><%= data.description %></li>
+      <li><%= data.location %></li>
+      <li><%= data.country %></li>
+      
+      
+      
+
+     <br><br>
+       <div class="row container-fluid justify-content-start">
+        <form class="col-2"  action="/listing/<%= data._id %>?_method=DELETE" method="post">
+          <Button class=" btn btn-danger"> DELETE</Button>
+        </form>
+        <button class="col-2  btn btn-dark"><a style="text-decoration: none;color: white; font-size: 15px;"   href="/listing/<%= data._id %>/edit">Edit this post</a></button>
+       </div>
+       <br><br>
+       <hr>
+       <h4>
+        All Reviews
+       </h4>
+       <div class="row justify-content-start">
+       <% for (let review of data.reviews) { %>
+        <div class="card reviewcard " style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">UserName</h5>
+            <p class="card-text"><%= review.comment %></p>
+            <div class="col">
+              <% 
+                const stars = parseInt(review.rating);
+                for (let i = 0; i < stars; i++) { 
+              %>
+                <i class="fa-solid fa-star" style="color: yellow;"></i>
+              <% } %>
+            </div>
+            <form action="/listing/<%= data._id %>/reviews/<%= review._id %>?_method=DELETE" method="post">
+             <button class="btn btn-dark">Delete</button>
+           </form>
+          </div>
+        </div>
+      <% } %>
+    </div>
+       <hr>
+
+
+
+       <form class="container needs-validation" novalidate action="/listing/<%= data._id %>/reviews" method="post" >
+        <div>
+         
+        <fieldset class="starability-checkmark">
+  <legend>First rating:</legend>
+  <input type="radio" id="first-rate5" name="Review[rating]" value="5" />
+  <label for="first-rate5" title="Amazing">5 stars</label>
+  <input type="radio" id="first-rate4" name="Review[rating]" value="4" />
+  <label for="first-rate4" title="Very good">4 stars</label>
+  <input type="radio" id="first-rate3" name="Review[rating]" value="3" />
+  <label for="first-rate3" title="Average">3 stars</label>
+  <input type="radio" id="first-rate2" name="Review[rating]" value="2" />
+  <label for="first-rate2" title="Not good">2 stars</label>
+  <input type="radio" id="first-rate1" name="Review[rating]" value="1" />
+  <label for="first-rate1" title="Terrible">1 star</label>
+</fieldset>
+        <div>
+        <label for="comment">Leave Comment</label>
+          <textarea class="form-control" required name="Review[comment]" id="validationServer03Feedback " cols="30" rows="5" ></textarea>
+          <div class="invalid-feedback">
+            please add a comment for reviews
+          </div>
+        </div>
+        <br>
+        <button type="submit" class=" btn btn-success">Submit</button><br><br>
+       </form>
+    </div>
+    
+     
+</body>
+

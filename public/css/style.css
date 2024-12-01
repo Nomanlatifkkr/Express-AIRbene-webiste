@@ -1,0 +1,210 @@
+html, body {
+    overflow-x: hidden;
+  }
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+.reviewcard{
+    border: 1px solid rgb(11, 11, 11);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+body{
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    max-width: 100vw;
+    max-height: 100vh;
+    min-height: 100vh;
+
+    
+}
+.container-auto{
+  width: auto;
+}
+.main{
+   margin: 0px;
+   padding: 0px;
+   width: 100vw;
+
+ justify-content: center;
+}
+.showimage{
+    margin-bottom: 20px;
+    margin-top: 20px;
+   border-radius: 20px;
+   width: 50em;
+   height: 30rem;
+
+transition: transform 0.3s ease; 
+}
+.showimage:hover {
+    transform: scale(0.99); /* Zoom effect on hover */
+}
+
+.showcontainer{
+ padding: 20px;
+}
+.navbar{
+    height:80px;
+     padding:10px;
+}
+
+.container{
+    flex: 1;
+}
+
+.btn{
+  align-self: center;
+}
+.card{
+    margin: 10px;
+    border-radius: 20px;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+}
+.image{
+    width: auto;
+    height: 13rem;
+    border-radius: 10px;
+
+}
+.card{
+    border: none;
+    background: transparent;
+    transition: transform 0.3s ease; 
+}
+.card:hover {
+    transform: scale(1.05); /* Zoom effect on hover */
+}
+.row{
+   gap: 3rem;
+   justify-content: center;
+  
+}
+.fa-compass{
+    color:#0d6efd;
+    font-size: 2rem;
+}
+.nav-link{
+    color: rgb(14, 13, 13) !important;
+}
+/* .bg {
+    margin: auto;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow: auto;
+    background: linear-gradient(315deg, rgba(101,0,94,1) 3%, rgba(60,132,206,1) 38%, rgba(48,238,226,1) 68%, rgba(255,25,25,1) 98%);
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+    background-attachment: fixed;
+} */
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+.wave {
+    background: rgb(255 255 255 / 25%);
+    border-radius: 1000% 1000% 0 0;
+    position: fixed;
+    width: 200%;
+    height: 12em;
+    animation: wave 10s -3s linear infinite;
+    transform: translate3d(0, 0, 0);
+    opacity: 0.8;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.wave:nth-of-type(2) {
+    bottom: -1.25em;
+    animation: wave 18s linear reverse infinite;
+    opacity: 0.8;
+}
+
+.wave:nth-of-type(3) {
+    bottom: -2.5em;
+    animation: wave 20s -1s reverse infinite;
+    opacity: 0.9;
+}
+
+@keyframes wave {
+    2% {
+        transform: translateX(1);
+    }
+
+    25% {
+        transform: translateX(-25%);
+    }
+
+    50% {
+        transform: translateX(-50%);
+    }
+
+    75% {
+        transform: translateX(-25%);
+    }
+
+    100% {
+        transform: translateX(1);
+    }
+}.navbg{
+    background-color: aliceblue;
+}
+.con h2 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.foot {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    height: 5rem;
+
+
+    background: rgb(209, 231, 230);
+      /* Make the footer stick to the bottom */
+    bottom: 0;
+    width: 100%;      /* Ensure it spans the full width */
+    transition: transform 0.3s ease-in-out;
+       /* Ensures it stays above other content */
+}
+
+@media (max-width: 768px) {
+    /* Remove the warp effect on mobile */
+    .foot {
+        padding: 10px;
+        height: auto;
+      transform: skewY(0deg);
+      flex-direction: column;
+    }
+    .social{
+        margin-bottom:-30px ;
+    }
+    .listlink{
+        margin-top: -20px;
+    }
+  }
+.fa-brands{
+    font-size: 1.5rem;
+}
+.social, .detail ,.listlink{
+    display: flex;
+    gap: 1.3rem;
+}

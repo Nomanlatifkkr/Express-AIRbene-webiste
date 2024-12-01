@@ -1,0 +1,59 @@
+<% layout('tamp/bolierplate.ejs') -%> 
+<body><br><br>
+    <form method="POST" action="/listing/<%= data._id %>?_method=PUT" class="form-floating needs-validation" novalidate>
+        <div class="form-floating mb-3">
+          <input type="text" name="listing[title]" value="<%= data.title %>" class="form-control" id="floatingInput" required>
+          <label for="floatingInput">Title for Listing</label>
+          <div class="invalid-feedback">
+            Please choose a Title
+          </div>
+        </div><br>
+    
+        <div class="form-floating">
+          <textarea name="listing[description]" id="description" cols="30" rows="30" class="form-control" required><%= data.description %></textarea>
+          <label for="floatingTextarea">Description</label>
+          <div class="invalid-feedback">
+            Please Write A description
+          </div>
+        </div><br>
+    
+        <div class="form-floating">
+          <input id="url" class="form-control" type="text" name="listing[image.url]" value="<%= data.image.url %>" required>
+          <label for="url">Image URL/link</label>
+          <div class="invalid-feedback">
+            Please provide image link
+          </div>
+        </div><br>
+    
+        <div class="form-floating">
+          <input type="number" name="listing[price]" id="floatingPrice" class="form-control" value="<%= data.price %>" required>
+          <label for="floatingPrice">Enter price</label>
+          <div class="invalid-feedback">
+            Please choose price
+          </div><br>
+        </div>
+    
+        <div class="row justify-content-start">
+          <div class="form-floating col-3">
+            <input type="text" name="listing[location]" value="<%= data.location %>" id="floatingInput" class="form-control" placeholder="Enter your location" required>
+            <label for="floatingInput">Location</label>
+            <div class="invalid-feedback">
+              Please choose a Location
+            </div>
+          </div>
+        
+    
+        <div class="form-floating col">
+          <input id="floatingcountry" class="w-100 form-control" type="text" name="listing[country]" value="<%= data.country %>" placeholder="Enter your country" required>
+          <label for="floatingcountry">Country</label>
+        </div>
+        </div><br><br>
+        
+
+         <button type="submit" class="btn">Edit</button>
+  
+
+        
+       
+      </form><br>
+</body>
